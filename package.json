@@ -1,0 +1,43 @@
+{
+  "name": "chain-tester",
+  "version": "1.0.0",
+  "description": "Test harness for Centrality blockchain",
+  "main": "src/txSender.js",
+  "scripts": {
+    "test": "node src/txSender.js",
+    "reset": "rm -rf node_modules package-lock.json && npm install"
+  },
+  "author": "",
+  "license": "ISC",
+  "bin": {
+    "hello": "./bin/chain-tester.js"
+  },
+  "dependencies": {
+    "@cennznet/api": "1.0.1",
+    "boxen": "^4.0.0",
+    "chalk": "^2.4.2",
+    "prom-client": "9.1.1"
+  },
+  "resolutions": {
+    "@polkadot/types": "1.2.1",
+    "@polkadot/metadata": "1.2.1",
+    "@polkadot/api": "1.2.1",
+    "@polkadot/api-derive": "1.2.1",
+    "@polkadot/rpc-core": "1.2.1",
+    "@polkadot/util-crypto": "2.4.1",
+    "@polkadot/wasm-crypto": "1.2.1",
+    "@polkadot/util": "1.2.1"
+  },
+  "devDependencies": {
+    "@polkadot/api": "1.2.1",
+    "@polkadot/api-derive": "1.2.1",
+    "@polkadot/keyring": "^2.9.1",
+    "@polkadot/metadata": "1.2.1",
+    "@polkadot/rpc-core": "1.2.1",
+    "@polkadot/types": "1.2.1",
+    "@polkadot/util-crypto": "^2.4.1",
+    "core-js": "^3.0.1",
+    "moment": "^2.24.0",
+    "ramda": "^0.27.0"
+  }
+}
