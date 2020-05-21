@@ -1,0 +1,30 @@
+version: '3'
+services: 
+    prometheus-server: 
+        image: prom/prometheus
+        container_name: prometheus
+        volumes: 
+            - .:/prometheus-data
+        ports: 
+            - 9090:9090
+        command: 
+            - --config.file=/prometheus-data/prometheus.yml
+        networks: 
+            monitor-network:
+                ipv4_address: 10.10.10.1
+    
+    grafana-server:
+        image: grafana/grafana 
+        container_name: grafana
+        ports: 
+            - 3000:3000
+        networks:
+            monitor-network:
+                ipv4_address: 10.10.10.2            
+
+networks: 
+    monitor-network:
+        ipam: 
+            driver: default
+            config:
+                - subnet: 10.10.10.0/16

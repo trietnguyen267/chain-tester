@@ -1,0 +1,68 @@
+version: '3'
+services:
+  cennznet-v-1:
+    image: cennznet/cennznet:1.0.1
+    container_name: v1
+    volumes: ["./data/node/cennznet-v-1:/mnt/cennznet"]
+    command:
+      - --base-path=/mnt/cennznet
+      - --validator
+      - --chain=dev
+      - --alice
+      - --unsafe-ws-external
+      - --ws-port=9944
+      - --rpc-cors=all
+      - --unsafe-rpc-external
+      - --log=tx-pool=trace,rpc=debug,sc_basic_authorship=trace
+    ports:
+      - 8800:9944
+      - 9900:9933
+
+  cennznet-v-2:
+    image: cennznet/cennznet:1.0.1
+    container_name: v2
+    volumes: ["./data/node/cennznet-v-2:/mnt/cennznet"]
+    command:
+      - --base-path=/mnt/cennznet
+      - --validator
+      - --chain=dev
+      - --bob
+      - --unsafe-ws-external
+      - --ws-port=9944
+      - --rpc-cors=all
+      - --unsafe-rpc-external
+    ports:
+      - "8801:9944"
+      - 9901:9933
+
+  cennznet-v-3:
+    image: cennznet/cennznet:1.0.1
+    container_name: v3
+    volumes: ["./data/node/cennznet-v-3:/mnt/cennznet"]
+    command:
+      - --base-path=/mnt/cennznet
+      - --validator
+      - --chain=dev
+      - --charlie
+      - --unsafe-ws-external
+      - --ws-port=9944
+      - --rpc-cors=all
+      - --unsafe-rpc-external
+    ports:
+      - "8802:9944"
+      - "9902:9933"
+
+  cennznet-f-1:
+    image: cennznet/cennznet:1.0.1
+    container_name: f1
+    volumes: ["./data/node/cennznet-f-1:/mnt/cennznet"]
+    command:
+      - --base-path=/mnt/cennznet
+      - --chain=dev
+      - --unsafe-ws-external
+      - --ws-port=9944
+      - --rpc-cors=all
+      - --unsafe-rpc-external
+    ports:
+      - "8803:9944"
+      - "9903:9933"
